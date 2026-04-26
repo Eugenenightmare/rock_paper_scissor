@@ -12,8 +12,14 @@ name_label.pack()
 name_entry = tk.Entry(root,width=25)
 name_entry.pack(pady=5)
 
+guesses = 0
+max_guesses = 10
 def say_hello():
     name = name_entry.get().strip()
+        global guesses
+    guesses = guesses + 1
+    if guesses == max_guesses:
+        title_label.config(text=f"Game Over")
     if name:
         title_label.config(text=f"Hello, {name}!")
     else:
